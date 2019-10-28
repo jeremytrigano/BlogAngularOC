@@ -1,24 +1,25 @@
-<div [ngClass]="{'list-group-item': true,
-                'flex-column': true,
-                'align-items-start': true,
-                'list-group-item-success': post.loveIts > 0,
-                'list-group-item-danger': post.loveIts < 0}"
-  [ngStyle]="{'color': getColor()}">
-
-
+<div class="list-group-item flex-column align-items-start" [ngClass]="{
+    'list-group-item-success': post.loveIts > 0,
+    'list-group-item-danger': post.loveIts < 0
+  }">
   <div>
-    <small class="pull-right"
-      [ngStyle]="{'color': 'gray'}">{{ post.createdAt | date:'short' }}</small>
+    <small class="pull-right" [ngStyle]="{ color: 'gray' }">{{
+      post.createdAt | date: 'short'
+    }}</small>
     <h4>{{ post.title }}</h4>
   </div>
 
   <p>{{ post.content }}</p>
-  <div class="btn-toolbar"> <button type="button" class="btn btn-success"
-      (click)="onLoveIt()">Love
-      it!</button>
-    <button type="button" class="btn btn-danger" (click)="onDontLove()">Dont
-      love
-      it!</button>
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-success" (click)="onLoveIt()">
+      Love it!
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onDontLove()">
+      Dont love it!
+    </button>
+    <button type="button" class="btn btn-danger pull-right"
+      (click)="onDeletePost(index)">
+      Supprimer post
+    </button>
   </div>
-
 </div>
