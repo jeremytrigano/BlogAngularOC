@@ -21,7 +21,7 @@ export class PostService {
   }
 
   addPost(ptitle: string, pcontent: string) {
-    const newId = this.posts[this.posts.length - 1].id + 1;
+    const newId = this.posts.length + 1;
     const postObject = new Post({
       id: newId,
       title: ptitle,
